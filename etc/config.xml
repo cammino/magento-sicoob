@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Cammino_Sicoob>
+            <version>0.0.1</version>
+            <depends>
+                <Mage_Payment />
+            </depends>
+        </Cammino_Sicoob>
+    </modules>
+    
+    <global>
+        <models>
+            <sicoob>
+                <class>Cammino_Sicoob_Model</class>
+            </sicoob>
+        </models>
+
+        <helpers>
+            <sicoob>
+                <class>Cammino_Sicoob_Helper</class>
+            </sicoob>
+        </helpers>
+
+        <blocks>
+            <sicoob>
+                <class>Cammino_Sicoob_Block</class>
+            </sicoob>
+        </blocks>
+
+        <resources>
+            <sicoob_setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </sicoob_setup>
+            <sicoob_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </sicoob_write>
+            <sicoob_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </sicoob_read>
+        </resources>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <sicoob>
+                    <file>sicoob.xml</file>
+                </sicoob>
+            </updates>
+        </layout>
+        <routers>
+            <sicoob>
+                <use>standard</use>
+                <args>
+                    <module>Cammino_Sicoob</module>
+                    <frontName>sicoob</frontName>
+                </args>
+            </sicoob>
+        </routers>
+    </frontend>
+
+    <default>
+        <payment>
+            <sicoob>
+                <active>1</active>
+                <model>Cammino_Sicoob_Model_Standard</model>
+            </sicoob>
+        </payment>
+    </default>
+</config> 

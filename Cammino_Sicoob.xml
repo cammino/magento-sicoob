@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Cammino_Sicoob>
+            <active>true</active>
+            <codePool>community</codePool>
+            <version>0.0.1</version>
+            <depends>
+                <Mage_Payment />
+            </depends>
+        </Cammino_Sicoob>
+    </modules>
+</config>

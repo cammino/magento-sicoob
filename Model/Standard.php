@@ -159,6 +159,9 @@ class Cammino_Sicoob_Model_Standard extends Mage_Payment_Model_Method_Abstract {
 	private function getFormatedTaxvat($taxvat) {
 		$taxvat = str_replace('-', '', $taxvat);
 		$taxvat = str_replace('.', '', $taxvat);
+		$taxvat = str_replace('/', '', $taxvat);
+		$taxvat = str_replace('\\', '', $taxvat);
+		$taxvat = str_replace(' ', '', $taxvat);
 		return $taxvat;
 	}
 

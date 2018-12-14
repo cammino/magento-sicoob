@@ -3,6 +3,7 @@ class Cammino_Sicoob_Model_Standard extends Mage_Payment_Model_Method_Abstract {
 
 	protected $_code = 'sicoob';
 	protected $_order = null;
+	protected $_infoBlockType = 'sicoob/info';
 
 	public function getCheckout() {
 		return Mage::getSingleton('checkout/session');

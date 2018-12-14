@@ -53,6 +53,11 @@ class Cammino_Sicoob_StandardController extends Mage_Core_Controller_Front_Actio
             $this->_redirect('');
         }
 	}
+
+	public function adminredirectAction() {
+		$orderId = (int) $this->getRequest()->getParam('order_id');
+		$sicoob = $this->getBoletoSicoob();
+	}
 	
 	protected function _loadValidOrder($orderId = null) {
         if ($orderId == null) {

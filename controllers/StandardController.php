@@ -33,7 +33,7 @@ class Cammino_Sicoob_StandardController extends Mage_Core_Controller_Front_Actio
 	}
 
 	public function redirectAction() {
-		$boleto_sicoob = $this->getBoletoSicoob();
+		$sicoob = $this->getBoletoSicoob();
 		$session = $this->getCheckout();
 		$orderIncrementId = $session->getLastRealOrderId();
 		$lastOrderId = $session->getLastOrderId();
@@ -46,7 +46,7 @@ class Cammino_Sicoob_StandardController extends Mage_Core_Controller_Front_Actio
 				$order->save();
             }
             
-			$html = $boleto_sicoob->createRedirectForm();
+			$html = $sicoob->createRedirectForm();
 			$this->getResponse()->setHeader("Content-Type", "text/html; charset=utf-8", true);
 			$this->getResponse()->setBody($html);
 		}else {
@@ -57,6 +57,9 @@ class Cammino_Sicoob_StandardController extends Mage_Core_Controller_Front_Actio
 	public function adminredirectAction() {
 		$orderId = (int) $this->getRequest()->getParam('order_id');
 		$sicoob = $this->getBoletoSicoob();
+		$html = $sicoob->createRedirectForm($orderId);
+		$this->getResponse()->setHeader("Content-Type", "text/html; charset=utf-8", true);
+		$this->getResponse()->setBody($html);
 	}
 	
 	protected function _loadValidOrder($orderId = null) {
